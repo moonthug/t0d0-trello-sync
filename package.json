@@ -11,7 +11,9 @@
     "watch": "nodemon --exec npm run start:dev ./src"
   },
   "dependencies": {
-    "@moonthug/trello": "^1.0.1"
+    "@moonthug/trello": "^1.0.13",
+    "moment": "^2.23.0",
+    "moment-range": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0",
