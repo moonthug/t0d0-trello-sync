@@ -1,16 +1,12 @@
-import Moment from 'moment';
-import { extendMoment } from 'moment-range';
-const moment = extendMoment(Moment);
-
 export default [
   {
     board: 'Beer',
     sync: card => {
       if (card.due) {
-        const dueDate = moment(card.due);
-        return moment()
-          .range(moment(0), moment().add(7, 'd'))
-          .contains(dueDate);
+        const dueDate = new Date(card.due);
+        return (
+          dueDate.getTime() - new Date().getTime() < 7 * 24 * 60 * 60 * 1000
+        );
       }
       return false;
     }
