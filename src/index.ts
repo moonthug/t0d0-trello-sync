@@ -14,8 +14,7 @@ const main = async () => {
   const trelloSync = new TrelloSync({
     apiKey: process.env.TRELLO_API_KEY,
     apiToken: process.env.TRELLO_TOKEN,
-    username: process.env.TRELLO_USERNAME,
-    t0D0BoardName: process.env.TRELLO_T0D0_BOARDNAME
+    username: process.env.TRELLO_USERNAME
   });
 
   trelloSync.setBoardConfigs(config);

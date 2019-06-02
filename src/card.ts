@@ -1,8 +1,10 @@
+import Trello from '@moonthug/trello';
+
 import Board from './board';
 
 export default class Card {
 
-  trello: any;
+  trello: Trello;
   board: Board;
   list: Array<any>;
 
@@ -18,7 +20,7 @@ export default class Card {
    * @param board
    * @param cardData
    */
-  constructor (trello: any, board: Board, cardData: any) {
+  constructor (trello: Trello, board: Board, cardData: any) {
     this.trello = trello;
     this.board = board;
     this.list = board.lists.find(list => list.id === cardData.idList);
@@ -42,7 +44,7 @@ export default class Card {
    */
   public async fetchCustomFieldItems (): Promise<Array<any>> {
     try {
-      const fieldItems = await this.trello.getCardField(
+      const fieldItems: Array<any> = await this.trello.getCardField(
         this.id,
         'customFieldItems'
       );

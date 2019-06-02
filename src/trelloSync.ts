@@ -2,22 +2,23 @@ import Trello from '@moonthug/trello';
 
 import Board from './board';
 import BoardConfig from './boardConfig';
+import TrelloSyncOptions from './trelloSyncOptions';
 
 /**
  *
  */
 export default class TrelloSync {
 
-  trello: any;
-  options: any;
-  boardConfigs: any;
+  trello: Trello;
+  options: TrelloSyncOptions;
+  boardConfigs: Array<BoardConfig>;
   boards: Array<Board>;
 
   /**
    *
    * @param options
    */
-  constructor (options: any = {}) {
+  constructor (options: TrelloSyncOptions) {
     this.trello = new Trello(options.apiKey, options.apiToken);
     this.options = options;
     this.boards = [];
@@ -27,7 +28,7 @@ export default class TrelloSync {
    *
    * @param boardConfigs
    */
-  public setBoardConfigs (boardConfigs: any): void {
+  public setBoardConfigs (boardConfigs: Array<BoardConfig>): void {
     // Validate with JOI
     this.boardConfigs = boardConfigs;
   }

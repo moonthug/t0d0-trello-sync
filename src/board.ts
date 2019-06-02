@@ -1,9 +1,11 @@
+import Trello from '@moonthug/trello';
+
 import Card from './card';
 import BoardConfig from './boardConfig';
 
 export default class Board {
 
-  trello: any;
+  trello: Trello;
 
   id: string;
   name: string;
@@ -18,8 +20,9 @@ export default class Board {
    *
    * @param trello
    * @param boardData
+   * @param boardConfig
    */
-  constructor (trello: any, boardData: any, boardConfig: BoardConfig) {
+  constructor (trello: Trello, boardData: any, boardConfig: BoardConfig) {
     this.trello = trello;
 
     this.id = boardData.id;
@@ -41,7 +44,7 @@ export default class Board {
   /**
    *
    */
-  public async processCards(): Promise<void> {
+  public async processCards (): Promise<void> {
 
   }
 
