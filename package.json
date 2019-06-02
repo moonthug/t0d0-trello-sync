@@ -5,43 +5,22 @@
   "author": "alex <alex@polyglot.rodeo>",
   "license": "ISC",
   "scripts": {
-    "start": "node $NODE_DEBUG_OPTION ./src/index.js",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix ./src",
+    "start": "node $NODE_DEBUG_OPTION ./dist/index.js",
+    "build": "tsc",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
     "watch": "nodemon --exec npm run start:dev ./src"
   },
   "dependencies": {
-    "@moonthug/trello": "^1.0.13"
+    "@moonthug/trello": "^1.0.14",
+    "dotenv": "^8.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.0.0",
-    "@babel/core": "7.0.0",
-    "@babel/node": "7.0.0",
-    "@babel/plugin-proposal-class-properties": "7.0.0",
-    "@babel/plugin-transform-react-constant-elements": "7.0.0",
-    "@babel/polyfill": "7.0.0",
-    "@babel/preset-env": "7.0.0",
-    "@babel/preset-react": "7.0.0",
-    "babel-eslint": "9.0.0",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-dotenv": "^0.1.1",
-    "babel-plugin-transform-react-remove-prop-types": "0.4.15",
-    "eslint": "5.4.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-config-react": "^1.1.7",
-    "eslint-config-semistandard": "^13.0.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "2.14.0",
-    "eslint-plugin-node": "^8.0.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-react": "7.11.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-watch": "4.0.2",
-    "prettier": "^1.15.3",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-node-externals": "^1.7.2"
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^12.0.4",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "tslint-config-semistandard": "^8.0.0",
+    "typescript": "^3.5.1"
   },
   "optionalDependencies": {
     "nodemon": "^1.18.7"

@@ -1,11 +1,24 @@
+import Board from './board';
+
 export default class Card {
+
+  trello: any;
+  board: Board;
+  list: Array<any>;
+
+  id: string;
+  name: string;
+  due: number;
+
+  customFieldItems: Array<any>;
+
   /**
    *
-   * @param {Trello} trello
-   * @param {Board} board
-   * @param {Object} cardData
+   * @param trello
+   * @param board
+   * @param cardData
    */
-  constructor(trello, board, cardData) {
+  constructor (trello: any, board: Board, cardData: any) {
     this.trello = trello;
     this.board = board;
     this.list = board.lists.find(list => list.id === cardData.idList);
@@ -13,39 +26,37 @@ export default class Card {
     this.id = cardData.id;
     this.name = cardData.name;
     this.due = cardData.due;
-
-    this.customFieldItems = [];
   }
 
   /**
    *
    * @returns {Promise<void>}
    */
-  async fetchData() {
-    console.info(`Fetch data for card ${this.name}[${this.id}]`);
+  public async fetchData (): Promise<void> {
+    console.info(`Fetch data for card ${this.name} [${this.id}]`);
     this.customFieldItems = await this.fetchCustomFieldItems();
   }
 
   /**
    *
-   * @returns {Promise<CustomField>}
    */
-  async fetchCustomFieldItems() {
+  public async fetchCustomFieldItems (): Promise<Array<any>> {
     try {
       const fieldItems = await this.trello.getCardField(
         this.id,
         'customFieldItems'
       );
-      return fieldItems.map(fieldItem => {
+      return fieldItems.map((fieldItem: any) => {
         const customField = this.board.customFields.find(
           customField => customField.id === fieldItem.idCustomField
         );
 
         if (fieldItem.idValue) {
           fieldItem = customField.options.find(
-            option => option.id === fieldItem.idValue
+            (option: any) => option.id === fieldItem.idValue
           );
         }
+
         return { customField, fieldItem };
       });
     } catch (e) {
