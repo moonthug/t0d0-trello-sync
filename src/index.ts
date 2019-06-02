@@ -27,37 +27,6 @@ const main = async () => {
   // Sync Boards
   console.timeLog('sync');
   console.info('Sync complete');
-
-  //
-  // Extract t0d0's to create
-
-  // const cardsForT0D0Board = [];
-  //
-  // for (let board of boards) {
-  //   const boardConfig = config.find(boardConfig => boardConfig.board === board.name);
-  //
-  //   console.log(`Syncing board '${board.name}'`);
-  //
-  //   for (let card of board.cards) {
-  //     let result;
-  //     try {
-  //       result = await boardConfig.isCardAToDo(card);
-  //     } catch (e) {
-  //       throw e;
-  //     }
-  //
-  //     if (result === true) {
-  //       const t0d0Data = boardConfig.transformCardToT0D0(card);
-  //     }
-  //   }
-  // }
-
-  //
-  // Create t0d0's and add to t0d0 board
-
-  //
-  // Push the t0d0s to trello
-  // console.table(moveToT0d0);
 };
 
 /**
